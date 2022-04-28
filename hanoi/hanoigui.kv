@@ -1,0 +1,51 @@
+ScrollViewExample:
+#Dastan:
+
+<Dastan@BoxLayout>:
+    orientation:'vertical'
+    Button:
+        text:'1'
+    Button:
+        text:'2'
+    Button:
+        text:'3'
+    Button:
+        text:'4'
+
+<MainPage>:
+    orientation:'vertical'
+    BoxLayout:
+        size_hint:1,None
+        height:dp(50)
+        #pos:0,root.height-self.height
+
+        Spinner:
+            id:spin1
+            text:'4'
+            values:'1','2','3','4','5','6','7','8','9','10'
+            on_text: btn1.text='Show for {}'.format(self.text)
+            background_color: .5 , .5 , .1 , 1
+        Button:
+            id:btn1
+            text:'Show for {}'.format(spin1.text)
+            disabled:not spin1.text
+            on_press:root.show_button_pressed(spin1,shapes)
+    BoxLayout:
+        orientation:'vertical'
+        id:shapes
+        size_hint:1,None
+        height:self.minimum_height 
+        
+
+
+    
+    
+
+<ScrollViewExample@ScrollView>:
+    scroll_type:['bars','content']
+    scroll_wheel_distance:200
+    MainPage:
+        size_hint: 1, None
+        height: self.minimum_height        
+
+
