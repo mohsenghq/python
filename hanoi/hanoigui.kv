@@ -1,18 +1,22 @@
 ScrollViewExample:
 
-
-
 <MainPage>:
     orientation:'vertical'
+    # canvas.before:
+    #     Color:
+    #         rgba: 1,1,1,.8
+    #     Rectangle:
+    #         pos: root.pos
+    #         size: root.size
     BoxLayout:
         size_hint:1,None
         height:dp(50)
-        #pos:0,root.height-self.height
+        
 
         Spinner:
             id:spin1
-            text:'4'
-            values:'1','2','3','4','5','6','7','8','9','10'
+            text:'2'
+            values:'1','2','3','4','5','6','7','8','9','10','14'
             on_text: btn1.text='Show for {}'.format(self.text)
             background_color: .5 , .5 , .1 , 1
         Button:
@@ -21,6 +25,7 @@ ScrollViewExample:
             disabled:not spin1.text
             on_press:root.show_button_pressed(spin1,shapes)
     BoxLayout:
+
         orientation:'vertical'
         id:shapes
         size_hint:1,None
